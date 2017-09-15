@@ -1,0 +1,30 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/bpm-engine-rest.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.camunda.bpm.engine.rest.jackson.dateFormat</param-name>
+        <param-value>yyyy-MM-dd'T'HH:mm:ss.SSSZ</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.camunda.bpm.engine.rest.CustomJacksonDateFormatListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <display-name>Camunda JAX-RS Servlet</display-name>
+        <servlet-name>eu.sante.novelfood.rest.configuration.CamundaRestInterfaceApplication</servlet-name>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>eu.sante.novelfood.rest.configuration.CamundaRestInterfaceApplication</param-value>
+        </init-param>
+    </servlet>
+
+</web-app>

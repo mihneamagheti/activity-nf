@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.9.0">
+  <bpmn:process id="toUppercaseProcess" name="toUppercase Process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_17c5a0u</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_17c5a0u" sourceRef="StartEvent_1" targetRef="Task_0maqojf" />
+    <bpmn:endEvent id="EndEvent_19t05u2">
+      <bpmn:incoming>SequenceFlow_1lsyms1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1lsyms1" sourceRef="Task_0maqojf" targetRef="EndEvent_19t05u2" />
+    <bpmn:serviceTask id="Task_0maqojf" name="toUppercase" camunda:expression="${domainService.toUppercase(request)}" camunda:resultVariable="response">
+      <bpmn:incoming>SequenceFlow_17c5a0u</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1lsyms1</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="toUppercaseProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_17c5a0u_di" bpmnElement="SequenceFlow_17c5a0u">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="304" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="256.5" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_19t05u2_di" bpmnElement="EndEvent_19t05u2">
+        <dc:Bounds x="493" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="511" y="142" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lsyms1_di" bpmnElement="SequenceFlow_1lsyms1">
+        <di:waypoint xsi:type="dc:Point" x="404" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="493" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="448.5" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1dzyyz6_di" bpmnElement="Task_0maqojf">
+        <dc:Bounds x="304" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

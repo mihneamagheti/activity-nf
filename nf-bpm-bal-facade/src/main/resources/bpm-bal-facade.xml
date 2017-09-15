@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd" >
+
+    <!-- all the data layer meant to be access by the BPM should be imported here -->
+    <import resource="classpath:dal-dossier.xml" />
+    <!--import resource="classpath:dal-anythingelse.xml" / -->
+
+    <!-- this facade should expose all the apis from the imported data layers that are meant to be used by the BPM-->    
+    <bean id="domainService" class="eu.sante.novelfood.bal.facade.service.BusinessAbstractionLayerFacadeServiceImpl" />
+
+</beans>
